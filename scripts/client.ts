@@ -11,10 +11,11 @@ import {
   type Transport,
   type Chain,
 } from "viem"
-
+import { privateKeyToAccount } from "viem/accounts"
 import hre from "hardhat"
 import { reset } from "@nomicfoundation/hardhat-network-helpers"
-import { privateKeyToAccount } from "viem/accounts"
+import type { HttpNetworkUserConfig } from "hardhat/types"
+
 import { checkBalance } from "./checks"
 
 export interface ContractClient {
@@ -34,10 +35,7 @@ interface InitializedClients {
   local: boolean
 }
 
-const PRIVATE_KEY = process.env.PRIVATE_KEY as `0x${string}`
-const RPC_URL = process.env.RPC_URL as string
-
-const onlyPwnerChain = (): Chain =>
+const onlyPwnerChain = (rpcUrl: string): Chain =>
   defineChain({
     id: 31337,
     name: "Only Pwner",
@@ -49,10 +47,10 @@ const onlyPwnerChain = (): Chain =>
     },
     rpcUrls: {
       default: {
-        http: [RPC_URL],
+        http: [rpcUrl],
       },
       public: {
-        http: [RPC_URL],
+        http: [rpcUrl],
       },
     },
   })
@@ -83,8 +81,12 @@ export const initialiseClients = async (): Promise<InitializedClients> => {
       local: true,
     }
   } else {
-    const chain = onlyPwnerChain()
-    const account = privateKeyToAccount(PRIVATE_KEY)
+    const config = hre.network.config as HttpNetworkUserConfig
+    const accountPrivateKey = (config?.accounts as string[])[0] as `0x${string}`
+
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const chain = onlyPwnerChain(config.url!)
+    const account = privateKeyToAccount(accountPrivateKey)
 
     const publicClient = createPublicClient({
       chain,
