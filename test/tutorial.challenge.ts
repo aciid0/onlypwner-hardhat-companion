@@ -24,7 +24,7 @@ describe("[Challenge] Tutorial", () => {
   after(async () => {
     const contractBalance = await checkBalance(
       publicClient,
-      tutorialContract.address
+      tutorialContract.address,
     )
     expect(contractBalance).to.equal(0n)
     win()

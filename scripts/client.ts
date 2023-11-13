@@ -17,10 +17,27 @@ import { reset } from "@nomicfoundation/hardhat-network-helpers"
 import { privateKeyToAccount } from "viem/accounts"
 import { checkBalance } from "./checks"
 
+export interface ContractClient {
+  address: `0x${string}`
+  abi: Narrow<Abi | unknown[]>
+  read: (functionName: string) => Promise<unknown>
+  write: (functionName: string, args?: any[]) => Promise<void>
+}
+
+export interface InitializedTutorial extends InitializedClients {
+  contracts: ContractClient[]
+}
+
+interface InitializedClients {
+  publicClient: PublicClient
+  walletClient: WalletClient<Transport, Chain, Account>
+  local: boolean
+}
+
 const PRIVATE_KEY = process.env.PRIVATE_KEY as `0x${string}`
 const RPC_URL = process.env.RPC_URL as string
 
-const onlyPwnerChain = () =>
+const onlyPwnerChain = (): Chain =>
   defineChain({
     id: 31337,
     name: "Only Pwner",
@@ -42,33 +59,20 @@ const onlyPwnerChain = () =>
 
 const printWalletDetails = async (
   publicClient: PublicClient,
-  address: `0x${string}`
-) => {
+  address: `0x${string}`,
+): Promise<void> => {
   console.log("MY WALLET:", address)
   await checkBalance(publicClient, address, "MY BALANCE")
 }
 
-export interface ContractClient {
-  address: `0x${string}`
-  abi: Narrow<Abi | unknown[]>
-  read: (functionName: string) => Promise<unknown>
-  write: (functionName: string, args?: any[]) => Promise<void>
-}
-
-export interface Initialized {
-  publicClient: PublicClient
-  walletClient: WalletClient<Transport, Chain, Account>
-  local: boolean
-  contracts: ContractClient[]
-}
-
-export const initialiseClients = async () => {
+export const initialiseClients = async (): Promise<InitializedClients> => {
   console.log("Running on network: ", hre.network.name)
 
   if (hre.network.name === "localhost") {
     await reset()
 
-    const [_, walletClient] = await hre.viem.getWalletClients()
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_deployer, walletClient] = await hre.viem.getWalletClients()
     const publicClient = await hre.viem.getPublicClient()
 
     await printWalletDetails(publicClient, walletClient.account.address)
@@ -102,16 +106,19 @@ export const buildContractClient = (
   publicClient: PublicClient,
   walletClient: WalletClient<Transport, Chain, Account>,
   contractAddress: `0x${string}`,
-  abi: Narrow<Abi | unknown[]>
+  abi: Narrow<Abi | unknown[]>,
 ): ContractClient => {
-  const readContract = (functionName: string) =>
-    publicClient.readContract({
+  const readContract = async (functionName: string): Promise<unknown> =>
+    await publicClient.readContract({
       address: contractAddress,
       abi,
       functionName,
     })
 
-  const writeContract = async (functionName: string, args: any[] = []) => {
+  const writeContract = async (
+    functionName: string,
+    args: any[] = [],
+  ): Promise<void> => {
     const transaction = await walletClient.writeContract({
       address: contractAddress,
       abi,

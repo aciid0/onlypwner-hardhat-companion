@@ -1,6 +1,6 @@
-import { PublicClient, formatEther, parseAbi } from "viem"
+import { type PublicClient, formatEther, parseAbi } from "viem"
 
-export const win = () => {
+export const win = (): void => {
   console.log("\n**********************")
   console.log("***     WINNNER    ***")
   console.log("***   🤘🏆🏆🏆🤘   ***")
@@ -10,8 +10,8 @@ export const win = () => {
 export const checkBalance = async (
   publicClient: PublicClient,
   address: `0x${string}`,
-  message = "BALANCE:"
-) => {
+  message = "BALANCE:",
+): Promise<bigint> => {
   const balance = await publicClient.getBalance({
     address,
   })
@@ -23,8 +23,8 @@ export const checkTokenBalance = async (
   publicClient: PublicClient,
   tokenAddress: `0x${string}`,
   address: `0x${string}`,
-  message = "TOKEN BALANCE:"
-) => {
+  message = "TOKEN BALANCE:",
+): Promise<bigint> => {
   const abi = parseAbi(["function balanceOf(address) view returns(uint256)"])
 
   const balance = (await publicClient.readContract({
