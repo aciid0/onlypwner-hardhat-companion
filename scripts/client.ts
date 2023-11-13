@@ -68,7 +68,7 @@ const printWalletDetails = async (
 export const initialiseClients = async (): Promise<InitializedClients> => {
   console.log("Running on network: ", hre.network.name)
 
-  if (hre.network.name === "localhost") {
+  if (["localhost", "hardhat"].includes(hre.network.name)) {
     await reset()
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
