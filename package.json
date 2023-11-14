@@ -12,9 +12,12 @@
     "tutorial": "hardhat test test/tutorial.challenge.ts",
     "tutorial:onlypwner": "hardhat test test/tutorial.challenge.ts --network onlypwner",
     "freebie": "hardhat test test/freebie.challenge.ts",
-    "freebie:onlypwner": "hardhat test test/freebie.challenge.ts --network onlypwner"
+    "freebie:onlypwner": "hardhat test test/freebie.challenge.ts --network onlypwner",
+    "reverseRugpull": "hardhat test test/reverseRugpull.challenge.ts",
+    "reverseRugpull:onlypwner": "hardhat test test/reverseRugpull.challenge.ts --network onlypwner"
   },
   "dependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
     "@nomicfoundation/hardhat-toolbox-viem": "^1.0.0",
     "@openzeppelin/contracts": "^5.0.0",
     "dotenv": "^16.3.1",
@@ -29,6 +32,6 @@
     "eslint-plugin-n": "^16.3.1",
     "eslint-plugin-promise": "^6.1.1",
     "prettier": "^3.1.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.0.4"
   }
 }

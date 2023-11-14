@@ -33,6 +33,6 @@ export const checkTokenBalance = async (
     functionName: "balanceOf",
     args: [address],
   })) as unknown as bigint
-  console.log(message, balance)
+  console.log("  " + message, balance)
   return balance
 }
