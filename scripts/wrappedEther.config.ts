@@ -35,7 +35,8 @@ export const initialize = async (): Promise<InitializedTutorial> => {
 
     await Promise.all(deposits)
 
-    await setBalance(walletClient.account.address, parseEther("1"))
+    //  A little extra ETH than onlyPwner, to cover gas on local node
+    await setBalance(walletClient.account.address, parseEther("1.1"))
 
     contractAddress = contract.address
   } else {
