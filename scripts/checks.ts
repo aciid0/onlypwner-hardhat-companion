@@ -1,10 +1,10 @@
 import { type PublicClient, formatEther, parseAbi } from "viem"
 
 export const win = (): void => {
-  console.log("\n**********************")
-  console.log("***     WINNNER    ***")
-  console.log("***   🤘🏆🏆🏆🤘   ***")
-  console.log("**********  **********")
+  console.log("\n  **********************")
+  console.log("  ***     WINNNER    ***")
+  console.log("  ***   🤘🏆🏆🏆🤘   ***")
+  console.log("  **********  **********")
 }
 
 export const checkBalance = async (
@@ -15,7 +15,7 @@ export const checkBalance = async (
   const balance = await publicClient.getBalance({
     address,
   })
-  console.log(message, balance, `~ ${formatEther(balance)} ETH`)
+  console.log("  " + message, balance, `~ ${formatEther(balance)} ETH`)
   return balance
 }
 

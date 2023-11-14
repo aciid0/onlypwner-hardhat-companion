@@ -14,6 +14,9 @@ const config: HardhatUserConfig = {
       accounts: [PRIVATE_KEY],
     },
   },
+  mocha: {
+    slow: 2000,
+  },
 }
 
 export default config

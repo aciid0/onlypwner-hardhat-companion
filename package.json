@@ -9,7 +9,8 @@
     "url": "https://github.com/aciid0/onlypwner-hardhat-companion.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tutorial": "hardhat test test/tutorial.challenge.ts",
+    "tutorial:onlypwner": "hardhat test test/tutorial.challenge.ts --network onlypwner"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-toolbox-viem": "^1.0.0",

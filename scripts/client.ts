@@ -59,12 +59,12 @@ const printWalletDetails = async (
   publicClient: PublicClient,
   address: `0x${string}`,
 ): Promise<void> => {
-  console.log("MY WALLET:", address)
+  console.log("  MY WALLET:", address)
   await checkBalance(publicClient, address, "MY BALANCE")
 }
 
 export const initialiseClients = async (): Promise<InitializedClients> => {
-  console.log("Running on network: ", hre.network.name)
+  console.log("  Running on network: ", hre.network.name)
 
   if (["localhost", "hardhat"].includes(hre.network.name)) {
     await reset()

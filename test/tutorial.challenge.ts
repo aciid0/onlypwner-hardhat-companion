@@ -6,7 +6,7 @@ import { checkBalance, win } from "../scripts/checks"
 
 import { initialize } from "../scripts/tutorial.config"
 
-describe("[Challenge] Tutorial", () => {
+describe("Challenge: Tutorial", () => {
   let publicClient: PublicClient
   let tutorialContract: ContractClient
 
@@ -17,7 +17,7 @@ describe("[Challenge] Tutorial", () => {
     } = await initialize())
   })
 
-  it("Solve", async () => {
+  it("Tutorial", async () => {
     await tutorialContract.write("callMe")
   })
 
