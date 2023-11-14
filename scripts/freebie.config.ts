@@ -18,7 +18,9 @@ export const initialize = async (): Promise<InitializedTutorial> => {
   const { walletClient, publicClient, local } = await initialiseClients()
 
   if (local) {
-    const contract = await hre.viem.deployContract("Vault")
+    const contract = await hre.viem.deployContract(
+      "contracts/freebie/Vault.sol:Vault",
+    )
     await contract.write.deposit([], { value: parseEther("10") })
     contractAddress = contract.address
   } else {
