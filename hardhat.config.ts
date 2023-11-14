@@ -15,7 +15,7 @@ const config: HardhatUserConfig = {
     },
   },
   mocha: {
-    slow: 2000,
+    slow: 200000,
   },
 }
 

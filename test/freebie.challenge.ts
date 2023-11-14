@@ -1,31 +1,31 @@
-import type { PublicClient } from "viem"
+import { type PublicClient } from "viem"
 import { expect } from "chai"
 
 import type { ContractClient } from "../scripts/client"
 import { checkBalance, win } from "../scripts/checks"
 
-import { initialize } from "../scripts/tutorial.config"
+import { initialize } from "../scripts/freebie.config"
 
-// https://onlypwner.xyz/challenges/1
-describe("Challenge: Tutorial", () => {
+// https://onlypwner.xyz/challenges/5
+describe("Challenge: Freebie", () => {
   let publicClient: PublicClient
-  let tutorialContract: ContractClient
+  let vaultContract: ContractClient
 
   before(async () => {
     ;({
       publicClient,
-      contracts: [tutorialContract],
+      contracts: [vaultContract],
     } = await initialize())
   })
 
-  it("Tutorial", async () => {
-    await tutorialContract.write("callMe")
+  it("Freebie", async () => {
+    //  ADD YOUR SOLUTION HERE 🤞
   })
 
   after(async () => {
     const contractBalance = await checkBalance(
       publicClient,
-      tutorialContract.address,
+      vaultContract.address,
     )
     expect(contractBalance).to.equal(0n)
     win()
