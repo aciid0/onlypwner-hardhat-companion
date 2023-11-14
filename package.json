@@ -14,7 +14,9 @@
     "freebie": "hardhat test test/freebie.challenge.ts",
     "freebie:onlypwner": "hardhat test test/freebie.challenge.ts --network onlypwner",
     "reverseRugpull": "hardhat test test/reverseRugpull.challenge.ts",
-    "reverseRugpull:onlypwner": "hardhat test test/reverseRugpull.challenge.ts --network onlypwner"
+    "reverseRugpull:onlypwner": "hardhat test test/reverseRugpull.challenge.ts --network onlypwner",
+    "underTheFlow": "hardhat test test/underTheFlow.challenge.ts",
+    "underTheFlow:onlypwner": "hardhat test test/underTheFlow.challenge.ts --network onlypwner"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
