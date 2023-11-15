@@ -1,4 +1,12 @@
-import { type Narrow, type Abi } from "viem"
+import type {
+  Narrow,
+  Abi,
+  PublicClient,
+  WalletClient,
+  Transport,
+  Chain,
+  Account,
+} from "viem"
 
 import {
   type InitializedTutorial,
@@ -7,7 +15,10 @@ import {
 } from "./client"
 
 interface initialiseSingleContractParams {
-  deployContract: () => Promise<`0x${string}`>
+  deployContract: (
+    publicClient: PublicClient,
+    walletClient: WalletClient<Transport, Chain, Account>,
+  ) => Promise<`0x${string}`>
   abi: Narrow<Abi | unknown[]>
   externalContractAddress?: `0x${string}`
 }
@@ -22,7 +33,7 @@ export const initialiseSingleContract = async ({
   const { walletClient, publicClient, local } = await initialiseClients()
 
   if (local) {
-    contractAddress = await deployContract()
+    contractAddress = await deployContract(publicClient, walletClient)
   } else {
     contractAddress = externalContractAddress
   }
