@@ -20,7 +20,9 @@
     "wrappedEther": "hardhat test test/wrappedEther.challenge.ts",
     "wrappedEther:onlypwner": "hardhat test test/wrappedEther.challenge.ts --network onlypwner",
     "allOrNothing": "hardhat test test/allOrNothing.challenge.ts",
-    "allOrNothing:onlypwner": "hardhat test test/allOrNothing.challenge.ts --network onlypwner"
+    "allOrNothing:onlypwner": "hardhat test test/allOrNothing.challenge.ts --network onlypwner",
+    "pleaseSignHere": "hardhat test test/pleaseSignHere.challenge.ts",
+    "pleaseSignHere:onlypwner": "hardhat test test/pleaseSignHere.challenge.ts --network onlypwner"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
