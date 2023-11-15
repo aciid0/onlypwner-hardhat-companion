@@ -18,8 +18,9 @@
     "underTheFlow": "hardhat test test/underTheFlow.challenge.ts",
     "underTheFlow:onlypwner": "hardhat test test/underTheFlow.challenge.ts --network onlypwner",
     "wrappedEther": "hardhat test test/wrappedEther.challenge.ts",
-    "wrappedEther:onlypwner": "hardhat test test/wrappedEther.challenge.ts --network onlypwner"
-
+    "wrappedEther:onlypwner": "hardhat test test/wrappedEther.challenge.ts --network onlypwner",
+    "allOrNothing": "hardhat test test/allOrNothing.challenge.ts",
+    "allOrNothing:onlypwner": "hardhat test test/allOrNothing.challenge.ts --network onlypwner"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
