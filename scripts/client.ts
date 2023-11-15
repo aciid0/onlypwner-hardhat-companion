@@ -25,6 +25,7 @@ interface WriteFuncParams {
   functionName: string
   args?: any[]
   value?: any
+  dataSuffix?: any
 }
 
 type ReadFunc = (params: ReadFuncParams) => Promise<unknown>
@@ -133,6 +134,7 @@ export const buildContractClient = (
     functionName,
     args = [],
     value,
+    dataSuffix,
   }) => {
     const transaction = await walletClient.writeContract({
       address: contractAddress,
@@ -140,6 +142,7 @@ export const buildContractClient = (
       functionName,
       args,
       value,
+      dataSuffix,
       gasPrice: walletClient.chain.name === "Only Pwner" ? 0n : undefined,
     })
 

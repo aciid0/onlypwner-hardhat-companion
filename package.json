@@ -24,7 +24,9 @@
     "pleaseSignHere": "hardhat test test/pleaseSignHere.challenge.ts",
     "pleaseSignHere:onlypwner": "hardhat test test/pleaseSignHere.challenge.ts --network onlypwner",
     "bridgeTakeover": "hardhat test test/bridgeTakeover.challenge.ts",
-    "bridgeTakeover:onlypwner": "hardhat test test/bridgeTakeover.challenge.ts --network onlypwner"
+    "bridgeTakeover:onlypwner": "hardhat test test/bridgeTakeover.challenge.ts --network onlypwner",
+    "shapeShifter": "hardhat test test/shapeShifter.challenge.ts",
+    "shapeShifter:onlypwner": "hardhat test test/shapeShifter.challenge.ts --network onlypwner"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
