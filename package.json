@@ -26,7 +26,9 @@
     "bridgeTakeover": "hardhat test test/bridgeTakeover.challenge.ts",
     "bridgeTakeover:onlypwner": "hardhat test test/bridgeTakeover.challenge.ts --network onlypwner",
     "shapeShifter": "hardhat test test/shapeShifter.challenge.ts",
-    "shapeShifter:onlypwner": "hardhat test test/shapeShifter.challenge.ts --network onlypwner"
+    "shapeShifter:onlypwner": "hardhat test test/shapeShifter.challenge.ts --network onlypwner",
+    "thirteenthAirdrop": "hardhat test test/thirteenthAirdrop.challenge.ts",
+    "thirteenthAirdrop:onlypwner": "hardhat test test/thirteenthAirdrop.challenge.ts --network onlypwner"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
