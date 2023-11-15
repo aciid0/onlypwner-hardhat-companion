@@ -42,7 +42,7 @@ interface InitializedClients {
   local: boolean
 }
 
-const onlyPwnerChain = (rpcUrl: string): Chain =>
+export const onlyPwnerChain = (rpcUrl: string): Chain =>
   defineChain({
     id: 31337,
     name: "Only Pwner",
