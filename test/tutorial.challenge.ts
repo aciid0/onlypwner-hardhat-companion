@@ -19,7 +19,7 @@ describe("Challenge: Tutorial", () => {
   })
 
   it("call the callMe method of Tutorial", async () => {
-    await tutorialContract.write("callMe")
+    await tutorialContract.write({ functionName: "callMe" })
   })
 
   after(async () => {

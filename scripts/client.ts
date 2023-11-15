@@ -18,12 +18,17 @@ import type { HttpNetworkUserConfig } from "hardhat/types"
 
 import { checkBalance } from "./checks"
 
-type ReadFunc = (functionName: string) => Promise<unknown>
-type WriteFunc = (
-  functionName: string,
-  args?: any[],
-  value?: any,
-) => Promise<void>
+interface ReadFuncParams {
+  functionName: string
+}
+interface WriteFuncParams {
+  functionName: string
+  args?: any[]
+  value?: any
+}
+
+type ReadFunc = (params: ReadFuncParams) => Promise<unknown>
+type WriteFunc = (params: WriteFuncParams) => Promise<void>
 
 export interface ContractClient {
   address: `0x${string}`
@@ -117,14 +122,18 @@ export const buildContractClient = (
   contractAddress: `0x${string}`,
   abi: Narrow<Abi | unknown[]>,
 ): ContractClient => {
-  const readContract: ReadFunc = async (functionName) =>
+  const readContract: ReadFunc = async ({ functionName }) =>
     await publicClient.readContract({
       address: contractAddress,
       abi,
       functionName,
     })
 
-  const writeContract: WriteFunc = async (functionName, args = [], value) => {
+  const writeContract: WriteFunc = async ({
+    functionName,
+    args = [],
+    value,
+  }) => {
     const transaction = await walletClient.writeContract({
       address: contractAddress,
       abi,
