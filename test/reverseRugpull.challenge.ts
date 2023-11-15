@@ -5,7 +5,7 @@ import { expect } from "chai"
 import type { ContractClient } from "../scripts/client"
 import { checkTokenBalance, win } from "../scripts/checks"
 
-import { initialize } from "../scripts/reverseRugpull.config"
+import { initialize } from "../scripts/challengeConfigs/reverseRugpull.config"
 
 // https://onlypwner.xyz/challenges/7
 describe("Challenge: Reverse Rugpull", () => {

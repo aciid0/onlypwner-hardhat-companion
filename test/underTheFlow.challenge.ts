@@ -10,7 +10,7 @@ import { expect } from "chai"
 import type { ContractClient } from "../scripts/client"
 import { checkTokenBalance, win } from "../scripts/checks"
 
-import { initialize } from "../scripts/underTheFlow.config"
+import { initialize } from "../scripts/challengeConfigs/underTheFlow.config"
 
 // https://onlypwner.xyz/challenges/9
 describe("Challenge: Under the Flow", () => {

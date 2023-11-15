@@ -5,9 +5,9 @@ import {
   initialiseClients,
   buildContractClient,
   type InitializedTutorial,
-} from "./client"
+} from "../client"
 
-import { abi } from "../artifacts/contracts/underTheFlow/ImprovedERC20.sol/ImprovedERC20.json"
+import { abi } from "../../artifacts/contracts/underTheFlow/ImprovedERC20.sol/ImprovedERC20.json"
 
 export const externalContractAddress =
   "0x78aC353a65d0d0AF48367c0A16eEE0fbBC00aC88" as `0x${string}`

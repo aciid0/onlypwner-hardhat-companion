@@ -4,7 +4,7 @@ import { expect } from "chai"
 import type { ContractClient } from "../scripts/client"
 import { checkBalance, win } from "../scripts/checks"
 
-import { initialize } from "../scripts/allOrNothing.config"
+import { initialize } from "../scripts/challengeConfigs/allOrNothing.config"
 
 // https://onlypwner.xyz/challenges/10
 describe("Challenge: All or Nothing", () => {

@@ -5,9 +5,9 @@ import {
   initialiseClients,
   buildContractClient,
   type InitializedTutorial,
-} from "./client"
+} from "../client"
 
-import { abi } from "../artifacts/contracts/freebie/Vault.sol/Vault.json"
+import { abi } from "../../artifacts/contracts/tutorial/Tutorial.sol/Tutorial.json"
 
 export const externalContractAddress =
   "0x78aC353a65d0d0AF48367c0A16eEE0fbBC00aC88" as `0x${string}`
@@ -18,16 +18,15 @@ export const initialize = async (): Promise<InitializedTutorial> => {
   const { walletClient, publicClient, local } = await initialiseClients()
 
   if (local) {
-    const contract = await hre.viem.deployContract(
-      "contracts/freebie/Vault.sol:Vault",
-    )
-    await contract.write.deposit([], { value: parseEther("10") })
+    const contract = await hre.viem.deployContract("Tutorial", [], {
+      value: parseEther("10"),
+    })
     contractAddress = contract.address
   } else {
     contractAddress = externalContractAddress
   }
 
-  const vaultContract = buildContractClient(
+  const tutorialContract = buildContractClient(
     publicClient,
     walletClient,
     contractAddress,
@@ -38,6 +37,6 @@ export const initialize = async (): Promise<InitializedTutorial> => {
     walletClient,
     publicClient,
     local,
-    contracts: [vaultContract],
+    contracts: [tutorialContract],
   }
 }

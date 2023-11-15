@@ -5,10 +5,10 @@ import {
   initialiseClients,
   buildContractClient,
   type InitializedTutorial,
-} from "./client"
+} from "../client"
 
-import { abi } from "../artifacts/contracts/reverseRugpull/Vault.sol/Vault.json"
-import { abi as tokenAbi } from "../artifacts/contracts/reverseRugpull/MintableERC20.sol/MintableERC20.json"
+import { abi } from "../../artifacts/contracts/reverseRugpull/Vault.sol/Vault.json"
+import { abi as tokenAbi } from "../../artifacts/contracts/reverseRugpull/MintableERC20.sol/MintableERC20.json"
 
 export const externalTokenContractAddress =
   "0x78aC353a65d0d0AF48367c0A16eEE0fbBC00aC88" as `0x${string}`

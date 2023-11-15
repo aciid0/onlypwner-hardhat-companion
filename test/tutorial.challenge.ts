@@ -4,7 +4,7 @@ import { expect } from "chai"
 import type { ContractClient } from "../scripts/client"
 import { checkBalance, win } from "../scripts/checks"
 
-import { initialize } from "../scripts/tutorial.config"
+import { initialize } from "../scripts/challengeConfigs/tutorial.config"
 
 // https://onlypwner.xyz/challenges/1
 describe("Challenge: Tutorial", () => {

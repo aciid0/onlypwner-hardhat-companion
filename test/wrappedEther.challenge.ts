@@ -4,7 +4,7 @@ import { expect } from "chai"
 import type { ContractClient } from "../scripts/client"
 import { checkBalance, win } from "../scripts/checks"
 
-import { initialize } from "../scripts/wrappedEther.config"
+import { initialize } from "../scripts/challengeConfigs/wrappedEther.config"
 
 // https://onlypwner.xyz/challenges/12
 describe("Challenge: Wrapped Ether", () => {
