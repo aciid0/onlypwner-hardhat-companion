@@ -6,7 +6,7 @@ import { win } from "../scripts/checks"
 import { initialize } from "../scripts/challengeConfigs/pleaseSignHere.config"
 
 // https://onlypwner.xyz/challenges/6
-describe("Challenge: Freebie", () => {
+describe("Challenge: Please Sign Here", () => {
   let petitionContract: ContractClient
 
   before(async () => {
