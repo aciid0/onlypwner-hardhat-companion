@@ -26,7 +26,7 @@ describe("Challenge: Under the Flow", () => {
     } = await initialize())
   })
 
-  it("Under the Flow", async () => {
+  it("Get a token balance", async () => {
     //  ADD YOUR SOLUTION HERE 🤞
   })
 

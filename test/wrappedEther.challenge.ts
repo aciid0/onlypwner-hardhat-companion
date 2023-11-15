@@ -18,7 +18,7 @@ describe("Challenge: Wrapped Ether", () => {
     } = await initialize())
   })
 
-  it("Wrapped Ether", async () => {
+  it("Drain the contract of its funds", async () => {
     //  ADD YOUR SOLUTION HERE 🤞
   })
 

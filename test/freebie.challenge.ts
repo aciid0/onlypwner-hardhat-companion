@@ -18,7 +18,7 @@ describe("Challenge: Freebie", () => {
     } = await initialize())
   })
 
-  it("Freebie", async () => {
+  it("The Vault is out of funds", async () => {
     //  ADD YOUR SOLUTION HERE 🤞
   })
 

@@ -22,7 +22,7 @@ describe("Challenge: Reverse Rugpull", () => {
     } = await initialize())
   })
 
-  it("Reverse Rugpull", async () => {
+  it("The owner loses funds when trying to pull the rug", async () => {
     //  ADD YOUR SOLUTION HERE 🤞
   })
 

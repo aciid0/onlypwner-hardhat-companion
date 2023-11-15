@@ -18,7 +18,7 @@ describe("Challenge: Tutorial", () => {
     } = await initialize())
   })
 
-  it("Tutorial", async () => {
+  it("call the callMe method of Tutorial", async () => {
     await tutorialContract.write("callMe")
   })
 
