@@ -20,7 +20,9 @@ import { checkBalance } from "./checks"
 
 interface ReadFuncParams {
   functionName: string
+  args?: any[]
 }
+
 interface WriteFuncParams {
   functionName: string
   args?: any[]
@@ -123,11 +125,12 @@ export const buildContractClient = (
   contractAddress: `0x${string}`,
   abi: Narrow<Abi | unknown[]>,
 ): ContractClient => {
-  const readContract: ReadFunc = async ({ functionName }) =>
+  const readContract: ReadFunc = async ({ functionName, args }) =>
     await publicClient.readContract({
       address: contractAddress,
       abi,
       functionName,
+      args,
     })
 
   const writeContract: WriteFunc = async ({
